@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Text Colors */
+@layer base {
+  body {
+    @apply text-gray-50 bg-gray-900;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gray-50;
+  }
+  
+  p {
+    @apply text-gray-300;
+  }
+  
+  button, a {
+    @apply text-gray-50;
+  }
+}
+
+/* Enhanced Glass Effects */
+.glass-effect {
+  @apply bg-gray-900/90 backdrop-blur-2xl border border-gray-800/50;
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 41, 55, 0.37),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-effect:hover {
+  background: rgba(31, 41, 55, 0.95);
+  box-shadow: 
+    0 20px 40px 0 rgba(139, 92, 246, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero-content {
+  @apply flex flex-col items-center justify-center text-center relative z-10;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-image {
+  @apply absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-2xl;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.6); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Enhanced Gradient Text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-primary-500 to-secondary-500;
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Grid Pattern */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Enhanced Card Hover */
+.card-hover {
+  @apply transition-all duration-300 transform;
+}
+
+.card-hover:hover {
+  @apply -translate-y-1;
+  box-shadow: 
+    0 20px 40px 0 rgba(139, 92, 246, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced Button Styles */
+.btn-primary {
+  @apply relative inline-flex items-center justify-center;
+}
+
+.btn-primary::before {
+  content: '';
+  @apply absolute -inset-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl blur opacity-30 transition duration-300;
+}
+
+.btn-primary:hover::before {
+  @apply opacity-50;
+}
+
+.btn-secondary {
+  @apply px-8 py-4 bg-gray-800/50 hover:bg-gray-800 border border-gray-700 rounded-xl font-medium text-gray-50 transition-all duration-300 flex items-center justify-center space-x-2;
+}
+
+/* Feature Cards */
+.feature-card {
+  @apply glass-effect p-6 rounded-xl card-hover group cursor-pointer;
+}
+
+.feature-card h3 {
+  @apply text-gray-50;
+}
+
+.feature-card p {
+  @apply text-gray-300;
+}
+
+/* Pricing Cards */
+.pricing-card {
+  @apply glass-effect p-8 rounded-xl;
+}
+
+.pricing-card-popular {
+  @apply ring-2 ring-primary-500 scale-105;
+}
+
+.pricing-card h3 {
+  @apply text-gray-50;
+}
+
+.pricing-card .price {
+  @apply text-gray-50;
+}
+
+/* Success Story Cards */
+.story-card {
+  @apply glass-effect p-6 rounded-xl card-hover;
+}
+
+.story-card h3 {
+  @apply text-gray-50;
+}
+
+.story-card blockquote {
+  @apply text-gray-300;
+}
+
+/* Stats Cards */
+.stat-card {
+  @apply glass-effect p-4 rounded-xl;
+}
+
+.stat-card .value {
+  @apply text-gray-50;
+}
+
+.stat-card .label {
+  @apply text-gray-400;
+}
